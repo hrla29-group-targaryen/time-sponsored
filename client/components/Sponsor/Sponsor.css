@@ -4,6 +4,7 @@
     max-width: 75%;
     background: #fcfcfb;
     padding: 15px;
+	box-sizing: border-box;
 }
 
 #sponsor-container {
