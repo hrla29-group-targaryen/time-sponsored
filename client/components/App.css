@@ -34,7 +34,8 @@
 
 .order-no-minimum{
 	font-size: 12px !important;
-	color: #13aa37;
+    color: #13aa37;
+    margin-top: 5px !important;
 }
 
 

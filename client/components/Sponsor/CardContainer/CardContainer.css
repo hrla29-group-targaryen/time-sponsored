@@ -25,6 +25,10 @@
     height:35px;
 }
 
+.sponsor-card-left button:focus{
+	outline: none;
+}
+
 .sponsor-card-right{
 	position: relative;
 	left: -25px;
@@ -52,6 +56,10 @@
     box-shadow: 0 3px 6px rgba(0,0,0,.1);
     width:35px;
     height:35px;
+}
+
+.sponsor-card-right button:focus{
+	outline: none;
 }
 
 .sponsor-btn-invisible{
