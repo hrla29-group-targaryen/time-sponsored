@@ -12,7 +12,7 @@ class Card extends React.Component{
 		let emptyArr = new Array(5).fill(0)
 		let adjRate = rate - 1
 		return emptyArr.map((value,index)=> {
-			return (index <= adjRate) ? <img key={index} src="https://s3.amazonaws.com/jamestestingpurpose/ystar.png"alt="star"/> : <img key={index} src="https://s3.amazonaws.com/jamestestingpurpose/gstar.png"alt="star"/>
+			return (index <= adjRate) ? <img key={index} src="https://grubhub-james.s3-us-west-1.amazonaws.com/ystar.png"alt="star"/> : <img key={index} src="https://grubhub-james.s3-us-west-1.amazonaws.com/gstar.png"alt="star"/>
 		})
 	}
 

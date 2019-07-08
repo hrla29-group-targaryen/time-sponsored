@@ -10,47 +10,6 @@ ReactDOM.render(<MenuPageNav />, document.getElementById('menuPageNav-root'))
 ReactDOM.render(<App />, document.getElementById('time-root'))
 ReactDOM.render(<Sponsor />, document.getElementById('sponsored-root'))
 
-//======================================================================>
-//
-//======================================================================>
-
-// const Intro = () => {
-// 	return(
-// 		<section style={{minHeight: "50vh", fontSize: "10rem"}}>Intro
-// 		</section>
-// 		)
-// }
-
-// const Menu = () => {
-// 	return(
-// 		<section style={{minHeight: "120vh", fontSize: "10rem", borderBottom: "1px solid rgba(0,0,0,.2)"}}>Menu
-// 		</section>
-// 		)
-// }
-
-// const About = () => {
-// 	return(
-// 		<section style={{minHeight: "20vh", fontSize: "10rem", borderBottom: "1px solid rgba(0,0,0,.2)"}}>About
-// 		</section>
-// 		)
-// }
-
-// const Reviews = () => {
-// 	return(
-// 		<section style={{minHeight: "100vh", fontSize: "10rem", borderBottom: "1px solid rgba(0,0,0,.2)"}}>Reviews
-// 		</section>
-// 		)
-// }
-
-// ReactDOM.render(<Intro />, document.getElementById('intro-root'))
-// ReactDOM.render(<Menu />, document.getElementById('menu-root'))
-// ReactDOM.render(<About />, document.getElementById('about-root'))
-// ReactDOM.render(<Reviews />, document.getElementById('reviews-root'))
-
-//======================================================================>
-//
-//======================================================================>
-
 let menuPageNav = document.getElementById("menuPageNav-content")
 let menu_root_container = document.getElementById("menu-root")
 let about_root_container = document.getElementById("about-root")
@@ -69,11 +28,6 @@ let nav_reviews = document.getElementById("menuPageNav-reviews")
 nav_menu.classList.add("menuPageNav-focus")
 
 window.onscroll = () => {
-	// console.log("window.pageYOffset" , window.pageYOffset)
-	// console.log("stickyPosition" , stickyPosition)
-	// console.log("menuPosition" , menuPosition)
-	// console.log("aboutPosition" , aboutPosition)
-	// console.log("reviewsPosition" , reviewsPosition)
 
   if (window.pageYOffset >= stickyPosition) {
     menuPageNav.classList.add("menuPageNav-sticky")
