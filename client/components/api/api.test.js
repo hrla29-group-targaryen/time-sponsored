@@ -1,5 +1,6 @@
 import { APIgetSponsoredData, APIgetRestaurantData } from './api';
 // import mocXios from 'axios';
+let HTTP_Request_URL = (process.env.NODE_ENV === 'development') ? "http://localhost:3400" : "https://time-sponsored.herokuapp.com"
 
 const fakeData = {
 	title: "james is handsome",
@@ -14,7 +15,7 @@ describe('testing api calls', ()=> {
 	  }
 	  expect(APIgetSponsoredData(mocXios, '100')).resolves.toEqual(fakeData)
 	  expect(mocXios.get).toHaveBeenCalledTimes(1)
-	  expect(mocXios.get).toBeCalledWith("http://localhost:3400/api/sponsored/100")
+	  expect(mocXios.get).toBeCalledWith(`${HTTP_Request_URL}/api/sponsored/100`)
 	})
 })
 
@@ -36,7 +37,7 @@ describe('testing api calls', ()=> {
 	  }
 	  expect(APIgetRestaurantData(mocXios, '100')).resolves.toEqual(fakeData)
 	  expect(mocXios.get).toHaveBeenCalledTimes(1)
-	  expect(mocXios.get).toBeCalledWith("http://localhost:3400/api/data/100")
+	  expect(mocXios.get).toBeCalledWith(`${HTTP_Request_URL}/api/data/100`)
 	})
 })
 
