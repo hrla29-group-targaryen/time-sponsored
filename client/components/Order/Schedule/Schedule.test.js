@@ -32,12 +32,6 @@ describe('testing Schedule component', ()=> {
 		expect(wrapper.state().button_selected).toEqual('later')	
 	})
 
-	it('should check order-schedule-items-today-select ', ()=> {
-		let wrapper = shallow(<Schedule />)
-		expect.assertions(1)
-		expect(wrapper.find('.order-schedule-items-today-select option').length).toEqual(16)
-	})
-
 	it('should check order-schedule-exit button ', ()=> {
 		let inputCompare
 		let mockRoute_changer = (input) => {

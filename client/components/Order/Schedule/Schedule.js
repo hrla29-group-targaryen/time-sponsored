@@ -1,6 +1,6 @@
 import React from 'react'
 import './Schedule.css'
-import Calendar from './Calendar/Calendar'
+// import Calendar from './Calendar/Calendar'
 import Time from './Time/Time'
 
 class Schedule extends React.Component{
@@ -75,7 +75,7 @@ class Schedule extends React.Component{
 		} else if (button_selected === 'later' && this.state.date_selected) {
 			return <Time time_changer={this.later_time_changer} time_selected={this.state.later_time_selected}/>
 		} else if (button_selected === 'later'){
-			return <Calendar date_changer={this.date_changer}/>
+			// return <Calendar date_changer={this.date_changer}/>
 		}
 	}
 
