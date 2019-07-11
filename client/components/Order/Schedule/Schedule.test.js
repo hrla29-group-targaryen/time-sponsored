@@ -5,12 +5,6 @@ import Schedule from './Schedule';
 
 describe('testing Schedule component', ()=> {
 
-	// it('should grab a snapshot of the component.', ()=> {
-	// 	const component = renderer.create(<Schedule />)
-	// 	let tree = component.toJSON();
-	// 	expect(tree).toMatchSnapshot();
-	// })
-
 	it('should return a single-node wrapper.', ()=> {
 		expect(shallow(<Schedule />).length).toEqual(1)
 	})
@@ -30,6 +24,24 @@ describe('testing Schedule component', ()=> {
 		expect(wrapper.state().button_selected).toEqual('today')	
 		wrapper.instance().button_changer("later")
 		expect(wrapper.state().button_selected).toEqual('later')	
+	})
+
+	it('should check time_changer ', ()=> {
+		let wrapper = shallow(<Schedule />)
+		wrapper.instance().time_changer("11:00am")
+		expect(wrapper.state().time_selected).toEqual("11:00am")		
+	})
+
+	it('should check date_changer ', ()=> {
+		let wrapper = shallow(<Schedule />)
+		wrapper.instance().date_changer("Jul 10")
+		expect(wrapper.state().date_selected).toEqual("Jul 10")		
+	})
+
+	it('should check later_time_changer ', ()=> {
+		let wrapper = shallow(<Schedule />)
+		wrapper.instance().later_time_changer("Jul 11")
+		expect(wrapper.state().later_time_selected).toEqual("Jul 11")		
 	})
 
 	it('should check order-schedule-exit button ', ()=> {

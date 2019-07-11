@@ -12,7 +12,8 @@
     "dev:server": "env-cmd nodemon server/index.js",
     "dev:static": "webpack -d -w",
     "dev:client": "webpack-dev-server --open -d",
-    "dev:seed": "node database/seed.js"
+    "dev:seed": "node database/seed.js",
+    "dev:analyzer": "webpack --profile --json > stats.json"
   },
   "engine": {
     "node": "10.13.0"
@@ -62,6 +63,7 @@
     "react-test-renderer": "^16.8.6",
     "style-loader": "^0.23.1",
     "webpack": "^4.31.0",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1"
   }
