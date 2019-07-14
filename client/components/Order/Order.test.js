@@ -5,12 +5,6 @@ import Order from './Order';
 
 describe('testing Order component', ()=> {
 
-	// it('should grab a snapshot of the component.', ()=> {
-	// 	const component = renderer.create(<Order />)
-	// 	let tree = component.toJSON();
-	// 	expect(tree).toMatchSnapshot();
-	// })
-
 	it('should return a single-node wrapper.', ()=> {
 		expect(shallow(<Order />).length).toEqual(1)
 	})

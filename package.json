@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
-    "build": "webpack -p",
+    "build": "webpack --config webpack.prod.js",
     "test": "jest",
     "test:w": "jest --watchAll",
     "test:c": "jest --coverage",
     "dev:server": "env-cmd nodemon server/index.js",
-    "dev:static": "webpack -d -w",
-    "dev:client": "webpack-dev-server --open -d",
+    "dev:static": "webpack -w --config webpack.dev.js",
+    "dev:client": "webpack-dev-server --open --config webpack.dev.js",
     "dev:seed": "node database/seed.js",
     "dev:analyzer": "webpack --profile --json > stats.json"
   },
@@ -35,6 +35,9 @@
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-syntax-dynamic-import"
     ]
   },
   "jest": {
@@ -47,6 +50,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^24.8.0",
@@ -60,11 +64,14 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
     "jest-cli": "^24.8.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "react-test-renderer": "^16.8.6",
     "style-loader": "^0.23.1",
     "webpack": "^4.31.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.4.1"
+    "webpack-dev-server": "^3.4.1",
+    "webpack-merge": "^4.2.1"
   }
 }

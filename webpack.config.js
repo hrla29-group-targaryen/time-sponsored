@@ -4,7 +4,11 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: path.resolve(__dirname, "./client/"),
+  entry: [
+    // "core-js/modules/es.promise",
+    // "core-js/modules/es.array.iterator",
+    path.resolve(__dirname, "./client/")
+    ],
   output: {
       path: path.resolve(__dirname, "./static"),
       filename: "bundle.js"

@@ -54,7 +54,7 @@ class Schedule extends React.Component{
 			)
 	}
 
-	item_view_controller(button_selected){
+	item_view_controller(button_selected, date_selected){
 		if (button_selected === 'asap') {
 			return(
 				<section className="order-schedule-items-asap">
@@ -72,7 +72,7 @@ class Schedule extends React.Component{
 				)
 		} else if (button_selected === 'today'){
 			return <Time time_changer={this.time_changer} time_selected={this.state.time_selected}/>
-		} else if (button_selected === 'later' && this.state.date_selected) {
+		} else if (button_selected === 'later' && date_selected) {
 			return <Time time_changer={this.later_time_changer} time_selected={this.state.later_time_selected}/>
 		} else if (button_selected === 'later'){
 			return <Calendar date_changer={this.date_changer}/>
@@ -86,7 +86,7 @@ class Schedule extends React.Component{
 		<section className="order-schedule-container">
 
 			<section className="order-schedule-exit">
-				<button id="order-schedule-exit" onClick={()=>route_changer("delivery")}><i className="fas fa-angle-left"></i></button>
+				<button id="order-schedule-exit" onClick={()=>route_changer("delivery")}><img alt="right" height="20" src="https://grubhub-james.s3-us-west-1.amazonaws.com/left-arrow.png"/></button>
 				<h3>Schedule my order</h3>
 			</section>
 
@@ -107,7 +107,7 @@ class Schedule extends React.Component{
 
 			<section className="order-schedule-items">
 			{
-				this.item_view_controller(this.state.button_selected)
+				this.item_view_controller(this.state.button_selected, this.state.date_selected)
 			}
 			</section>
 

@@ -3,6 +3,9 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import Schedule from './Schedule';
 
+import Calendar from './Calendar/Calendar'
+import Time from './Time/Time'
+
 describe('testing Schedule component', ()=> {
 
 	it('should return a single-node wrapper.', ()=> {
@@ -43,6 +46,18 @@ describe('testing Schedule component', ()=> {
 		wrapper.instance().later_time_changer("Jul 11")
 		expect(wrapper.state().later_time_selected).toEqual("Jul 11")		
 	})
+
+
+
+	it('should check item_view_controller ', ()=> {
+		let wrapper = shallow(<Schedule />)
+		expect(wrapper.instance().item_view_controller('later', true)).toEqual( <Time time_changer={wrapper.instance().later_time_changer} time_selected={wrapper.state().later_time_selected}/>)
+		expect(wrapper.instance().item_view_controller('later')).toEqual(<Calendar date_changer={wrapper.instance().date_changer}/>)
+		
+	})
+
+
+
 
 	it('should check order-schedule-exit button ', ()=> {
 		let inputCompare

@@ -23,6 +23,10 @@
     box-shadow: 0 3px 6px rgba(0,0,0,.1);
     width:35px;
     height:35px;
+
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .sponsor-card-left button:focus{
@@ -56,6 +60,10 @@
     box-shadow: 0 3px 6px rgba(0,0,0,.1);
     width:35px;
     height:35px;
+
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .sponsor-card-right button:focus{
