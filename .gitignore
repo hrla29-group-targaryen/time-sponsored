@@ -6,3 +6,5 @@ static/bundle.js.br
 static/bundle.js.gz
 .env
 stats.json
+
+webpack.config.js

@@ -23,7 +23,7 @@ const Delivery = ({toggleModal, route_changer, data}) => {
 			<section className="order-delivery-address">
 				<h5>Delivery address</h5>
 				<div className="order-delivery-input-container">
-					<i className="fas fa-map-marker-alt"></i>
+					<img alt="right" height="30" style={{padding: '6px 0'}} src="https://grubhub-james.s3-us-west-1.amazonaws.com/maps.png"/>
 					<input className="order-delivery-input-field" placeholder="Street address, city, state"/>
 				</div>
 			</section>

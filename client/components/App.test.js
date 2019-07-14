@@ -25,8 +25,45 @@ describe('testing App component', ()=> {
 		expect.assertions(3)
 		expect(wrapper.state().isModalOpen).toEqual(false)
 		expect(wrapper.state().data).toEqual(null)
-		wrapper.instance().toggleModal()
-		expect(wrapper.state().isModalOpen).toEqual(true)
+		expect(wrapper.state().order).toEqual('')
+	})
+
+	it('should check toggleModal(true)', ()=> {
+		let wrapper = shallow(<App />)
+		expect.assertions(4)
+		expect(wrapper.state().isModalOpen).toEqual(false)
+		expect(wrapper.state().order).toEqual('')
+
+        wrapper.instance().toggleModal(true)
+        expect(wrapper.state().isModalOpen).toEqual(false)
+        expect(wrapper.state().order).toEqual('')
+	})
+
+	it('should check toggleModal(false)', ()=> {
+		let wrapper = shallow(<App />)
+		let instance = wrapper.instance()
+
+		jest.spyOn(instance, 'importingComponent')
+		instance.toggleModal(false)
+        expect(instance.importingComponent).toHaveBeenCalledTimes(1)
+	})
+
+	it('should check button #order-change', ()=> {
+		let wrapper = shallow(<App />)
+		let instance = wrapper.instance()
+		jest.spyOn(instance, 'toggleModal')
+		wrapper.find('#order-change').simulate('click')
+		expect(instance.toggleModal).toHaveBeenCalledTimes(1)
+	})
+
+	it('should check importingComponent', ()=> {
+		let wrapper = shallow(<App />)
+
+		expect(wrapper.state().isModalOpen).toEqual(false)
+		expect(wrapper.state().order).toEqual('')
+		
+		wrapper.instance().toggleModal(false)
+
 	})
 })
 

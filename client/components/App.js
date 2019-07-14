@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Modal from './Modal/Modal';
-import Order from './Order/Order';
 
 import axios from 'axios';
 import {APIgetRestaurantData} from './api/api';
@@ -12,11 +11,12 @@ class App extends React.Component{
 		this.state= {
 			isModalOpen : false,
 			data: null,
-			error : false
+			error : false,
+			order : '' //Order component, code split
 		}
 		this.getRestaurantData = this.getRestaurantData.bind(this)
 		this.toggleModal = this.toggleModal.bind(this)
-
+		this.importingComponent=this.importingComponent.bind(this)
 	}
 
 	componentDidMount(){
@@ -30,26 +30,42 @@ class App extends React.Component{
 	  	.catch(error=>this.setState({error: true}))
 	}
 
-	toggleModal(){
-		this.setState({isModalOpen: !this.state.isModalOpen})
+	toggleModal(isModalOpen_Input){
+		if (!isModalOpen_Input) {
+			this.importingComponent(isModalOpen_Input)
+		} else {
+			this.setState({isModalOpen: !isModalOpen_Input})
+		}
 	}
 
+	importingComponent(isModalOpen_Input){
+		import('./Order/Order.js').then(OrderComp => {
+			this.setState({isModalOpen: !isModalOpen_Input , order: OrderComp.default})
+		})
+	}
+
+	// async importingComponent(isModalOpen_Input){
+	// 	let OrderComp = await import('./Order/Order.js')
+	// 	console.log(OrderComp)
+	// 	this.setState({isModalOpen: !isModalOpen_Input , order: OrderComp.default})
+	// }
+
 	render(){
-		const {isModalOpen} = this.state
+		const {isModalOpen, data} = this.state
 		return(
 			<section>
 				<section className="order-container">
 					<section className="order-status">
-						<p>Delivery, ASAP {(this.state.data) && <span>{`(${this.state.data.waitingtime}m)`}</span>}</p>
+						<p>Delivery, ASAP {(data) && <span>{`(${data.waitingtime}m)`}</span>}</p>
 						<p className="order-no-minimum">No minimum</p>
 					</section>
-					<button className="order-change" onClick={this.toggleModal}>Change</button> <br />
+					<button className="order-change" id="order-change" onClick={()=>this.toggleModal(isModalOpen)}>Change</button> <br />
 				</section>
 				<section>
 					{
-						(isModalOpen && this.state.data) &&
+						(isModalOpen && data) &&
 						<Modal>
-							<Order data={this.state.data} isModalOpen={isModalOpen} toggleModal={this.toggleModal}/>
+							<this.state.order data={data} isModalOpen={isModalOpen} toggleModal={()=>this.toggleModal(isModalOpen)}/>
 						</Modal>
 					}
 				</section>

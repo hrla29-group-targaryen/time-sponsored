@@ -121,9 +121,9 @@
 .order-delivery-input-container input {
     width: 100%;
     border: transparent;
-    margin-left: -40px;
+    margin-left: -30px;
     background: transparent;
-    padding-left: 40px;
+    padding-left: 30px;
 }
 
 .order-delivery-update{

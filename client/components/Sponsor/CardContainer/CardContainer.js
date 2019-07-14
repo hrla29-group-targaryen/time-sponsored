@@ -74,7 +74,7 @@ class CardContainer extends React.Component{
 			<section className="sponsor-card-container">
 
 				<div className={leftButtonStyle}>
-					<button id="sponsor-card-container-button-prev" onClick={()=>this.changeDataSet("prev", this.state.current)}><i className="fas fa-angle-left"></i></button>
+					<button id="sponsor-card-container-button-prev" onClick={()=>this.changeDataSet("prev", this.state.current)}><img alt="right" height="20" src="https://grubhub-james.s3-us-west-1.amazonaws.com/left-arrow.png"/></button>
 				</div>
 
 				<div className="sponsor-card-container-sub">
@@ -85,7 +85,7 @@ class CardContainer extends React.Component{
 				</div>
 
 				<div className={rightButtonStyle}>
-					<button id="sponsor-card-container-button-next" onClick={()=>this.changeDataSet("next", this.state.current)}><i className="fas fa-angle-right"></i></button>
+					<button id="sponsor-card-container-button-next" onClick={()=>this.changeDataSet("next", this.state.current)}><img alt="right" height="20" src="https://grubhub-james.s3-us-west-1.amazonaws.com/right-arrow.png"/></button>
 				</div>
 
 			</section>
