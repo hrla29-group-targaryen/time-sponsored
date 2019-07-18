@@ -5,6 +5,8 @@ import Modal from './Modal/Modal';
 import axios from 'axios';
 import {APIgetRestaurantData} from './api/api';
 
+import Order from './Order/Order.js';
+
 class App extends React.Component{
 	constructor(props){
 		super(props)
@@ -38,17 +40,15 @@ class App extends React.Component{
 		}
 	}
 
-	importingComponent(isModalOpen_Input){
-		import('./Order/Order.js').then(OrderComp => {
-			this.setState({isModalOpen: !isModalOpen_Input , order: OrderComp.default})
-		})
-	}
-
-	// async importingComponent(isModalOpen_Input){
-	// 	let OrderComp = await import('./Order/Order.js')
-	// 	console.log(OrderComp)
-	// 	this.setState({isModalOpen: !isModalOpen_Input , order: OrderComp.default})
+	// importingComponent(isModalOpen_Input){
+	// 	import('./Order/Order.js').then(OrderComp => {
+	// 		this.setState({isModalOpen: !isModalOpen_Input , order: OrderComp.default})
+	// 	})
 	// }
+
+	importingComponent(isModalOpen_Input){
+		this.setState({isModalOpen: !isModalOpen_Input})
+	}
 
 	render(){
 		const {isModalOpen, data} = this.state
@@ -65,7 +65,7 @@ class App extends React.Component{
 					{
 						(isModalOpen && data) &&
 						<Modal>
-							<this.state.order data={data} isModalOpen={isModalOpen} toggleModal={()=>this.toggleModal(isModalOpen)}/>
+							<Order data={data} isModalOpen={isModalOpen} toggleModal={()=>this.toggleModal(isModalOpen)}/>
 						</Modal>
 					}
 				</section>
